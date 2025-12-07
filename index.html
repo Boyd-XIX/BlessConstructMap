@@ -118,7 +118,7 @@
             tileSize: 256,
             minZoom: 3,
             preferCanvas: true,
-	    attribution: 'Created by Nareon. Updated by Boyd and hexc0de'
+	    attribution: 'Created by Nareon. Updated by Boyd'
         }).addTo(map);
 	
         // Define categories and their markers    
@@ -1353,7 +1353,7 @@
         // Add event listener to place temporary markers
         map.on('click', function(e) {
             var latlng = e.latlng;
-            var formattedData = `{lat: ${latlng.lat.toFixed(5)}, lng: ${latlng.lng.toFixed(5)}, popup: "Bag Piece", title: "-"},`;
+            var formattedData = `{lat: ${latlng.lat.toFixed(5)}, lng: ${latlng.lng.toFixed(5)}, popup: "Marker", title: "-"},`;
             var tempMarker = L.marker(latlng, {
                 draggable: true // Make the marker draggable
             }).addTo(tempMarkerLayer);
@@ -1363,7 +1363,7 @@
             tempMarker.on('dragend', function(event) {
                 var marker = event.target;
                 var position = marker.getLatLng();
-                var formattedData = `{lat: ${position.lat.toFixed(5)}, lng: ${position.lng.toFixed(5)}, popup: "Bag Piece", title: "-"},`;
+                var formattedData = `{lat: ${position.lat.toFixed(5)}, lng: ${position.lng.toFixed(5)}, popup: "Marker", title: "-"},`;
                 marker.setPopupContent("Temporary Marker<br>Lat: " + position.lat.toFixed(5) + "<br>Lng: " + position.lng.toFixed(5) + "<br><br>Formatted Data:<br>" + formattedData).openPopup();
             });
         });
